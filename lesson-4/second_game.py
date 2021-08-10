@@ -1,4 +1,4 @@
-from dec import timer
+from handlers.timer import timer
 
 
 @timer
@@ -7,7 +7,9 @@ def guess_the_number():
     right = 1001
     current = (left+right) // 2
     while True:
-        answer = input(f"Ваше число {print (current)}? (больше/меньше/равно)\n").lower()
+        print('Ваше число ', current, '? (больше/меньше/равно)')
+        answer = input().lower()
+        #answer = input("Ваше число ", current,"? (больше/меньше/равно)\n").lower()
 
         if answer == 'равно':
             print('Я угадал ваше число ', current)

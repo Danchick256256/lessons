@@ -1,4 +1,4 @@
-from dec import user_input
+from handlers.user_input import user_input
 from first_game import change_case
 from second_game import guess_the_number
 from third_game import fib
@@ -21,8 +21,7 @@ def guess_game():
         leave = input("Хотите выйти? Y/N\n").lower()
         if leave == "y":
             return
-        elif leave == "n":
-            guess_game()
+        guess_game()
 
 
 @user_input
