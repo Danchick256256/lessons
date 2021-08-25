@@ -8,9 +8,9 @@ import random
 def change_case(word):
     result = ""
     for i in word:
-        r_case = random.randint(0, 1)
-        if (r_case == 1):
-            r_word = i.lower()
-        result += i.upper()
+        if random.randint(0, 1) == 1:
+            result += i.lower()
+        else:
+            result += i.upper()
 
     print(result)
