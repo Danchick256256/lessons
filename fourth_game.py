@@ -1,11 +1,14 @@
 import random
+import math
 
 
 def shooting_range():
     random.seed()
-    arr = [[random.randint(1, 10) for i in range(2)]for i in range(10)]
+    circle = 10**2 + 10**2
+    sqrt = round(math.sqrt(circle))
     counter = 0
     for i in range(10):
-        if arr[i][0] == 1 or arr[i][1] == 1:
+        x, y = random.randint(0, sqrt*2), random.randint(0, sqrt*2)
+        if x <= sqrt and y <= sqrt:
             counter += 1
     print(counter, "Попаданий в яблочко")
