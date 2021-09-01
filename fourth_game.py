@@ -3,7 +3,6 @@ import math
 
 
 def shooting_range():
-    random.seed()
     circle = 10**2 + 10**2
     sqrt = round(math.sqrt(circle))
     counter = 0
