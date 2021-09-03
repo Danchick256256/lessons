@@ -1,4 +1,5 @@
-from dec import *
+from handlers.timer import timer
+from handlers.input_word import input_word
 import random
 
 
@@ -7,12 +8,9 @@ import random
 def change_case(word):
     result = ""
     for i in word:
-        r_case = random.randint(0, 1)
-        if (r_case == 1):
-            rs_Word = i.lower()
+        if random.randint(0, 1) == 1:
+            result += i.lower()
         else:
-            rs_Word = i.upper()
-
-        result += rs_Word
+            result += i.upper()
 
     print(result)

@@ -1,4 +1,4 @@
-from dec import timer
+from handlers.timer import timer
 
 
 @timer
