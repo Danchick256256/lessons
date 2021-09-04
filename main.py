@@ -1,8 +1,6 @@
+import sys
+from game import Games
 from handlers.user_input import user_input
-from first_game import change_case
-from second_game import guess_the_number
-from third_game import fib
-from fourth_game import shooting_range
 
 
 def guess_game():
@@ -10,13 +8,13 @@ def guess_game():
         while True:
             guess_gametype = int(input("Выберите игру 1/2/3/4, чтобы выйти закончите игру и введите любое не числовое значение в выборе игры\n"))
             if guess_gametype == 1:
-                change_case()
+                Games.first_game()
             elif guess_gametype == 2:
-                guess_the_number()
+                Games.second_game()
             elif guess_gametype == 3:
-                fib()
+                Games.third_game()
             elif guess_gametype == 4:
-                shooting_range()
+                Games.fourth_game()
     except ValueError:
         leave = input("Хотите выйти? Y/N\n").lower()
         if leave == "y":
@@ -31,5 +29,8 @@ def login(name, password):
     else:
         print("Доступ запрещен")
 
-
-login()
+if __name__ == '__main__':
+    try:
+        login()
+    except KeyboardInterrupt:
+        sys.exit()
