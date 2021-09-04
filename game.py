@@ -11,7 +11,7 @@ class Games:
                 result += i.lower()
             else:
                 result += i.upper()
-        print(result)
+        return result
 
     def second_game():
         left = 0
@@ -23,7 +23,7 @@ class Games:
             # answer = input("Ваше число ", current,"? (больше/меньше/равно)\n").lower()
 
             if answer == 'равно':
-                print('Я угадал ваше число ', current)
+                return current
                 break
             elif answer == 'больше':
                 left = current
@@ -47,7 +47,7 @@ class Games:
             for i in range(n):
                 fib_sum = fib2 + fib1
                 fib1, fib2 = fib2, fib_sum
-        print(fib_sum)
+        return fib_sum
 
     def fourth_game():
         circle = 10 ** 2 + 10 ** 2
@@ -57,4 +57,4 @@ class Games:
             x, y = random.randint(0, sqrt * 2), random.randint(0, sqrt * 2)
             if x <= sqrt and y <= sqrt:
                 counter += 1
-        print(counter, "Попаданий в яблочко")
+        return counter
