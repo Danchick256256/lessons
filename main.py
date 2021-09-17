@@ -1,6 +1,6 @@
 import os
 from game import Games
-from handlers.user_input import user_input
+from handlers.input import user_input
 
 
 def guess_game():
@@ -24,7 +24,7 @@ def guess_game():
 
 def clear_console():
     command = 'clear'
-    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+    if os.name in ('nt', 'dos'):
         command = 'cls'
     os.system(command)
 

@@ -1,7 +1,6 @@
-def user_input(func):
-    def wrapper(*args, **kwargs):
-        name = input("Введите имя: ")
-        password = input("Введите пароль: ")
-        func(name=name, password=password, *args, **kwargs)
+class Handlers:
+    def __init__(self, function):
+        self.function = function
 
-    return wrapper
+    def __call__(self, *args, **kwargs):
+        return self.function(self, *args, **kwargs, value=input("Введите значение: "))

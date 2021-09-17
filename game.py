@@ -1,54 +1,67 @@
 import random
 import math
+from handlers.user_input import Handlers
 
 
-class Games:
-    def first_game():
-        word = input("Введите слово: ")
+class FirstGame:
+    @Handlers
+    def first_game(self, value):
+        self.value = value
         result = ""
-        for i in word:
+        for i in self.value:
             if random.randint(0, 1) == 1:
                 result += i.lower()
             else:
                 result += i.upper()
         return result
 
-    def second_game():
+
+class SecondGame:
+    @Handlers
+    def second_game(self, value):
+        self.value = int(value)
+        counter = 0
         left = 0
-        right = 1001
+        right = self.value // 2
         current = (left + right) // 2
         while True:
             print('Ваше число ', current, '? (больше/меньше/равно)')
             answer = input().lower()
-            # answer = input("Ваше число ", current,"? (больше/меньше/равно)\n").lower()
-
             if answer == 'равно':
-                return current
+                counter += 1
+                return current, counter
                 break
             elif answer == 'больше':
                 left = current
+                counter += 1
             elif answer == 'меньше':
                 right = current
+                counter += 1
             else:
-                print('Неизвестная команда')
+                return ('Неизвестная команда')
                 continue
             current = (left + right) // 2
 
-    def third_game():
+
+class ThirdGame:
+    @Handlers
+    def third_game(self, value):
+        self.value = int(value)
         fib1 = fib2 = 1
-        n = int(input("Введите число "))
         i = 2
-        if n == 1 or n == 0:
+        if self.value == 1 or self.value == 0:
             fib_sum = 1
-        elif n < 0:
-            print("Число отрицательное")
-            return
+        elif self.value < 0:
+            return ("Число отрицательное")
         else:
-            for i in range(n):
+            for i in range(self.value):
                 fib_sum = fib2 + fib1
                 fib1, fib2 = fib2, fib_sum
+        print(fib_sum)
         return fib_sum
 
+
+class FourthGame:
     def fourth_game():
         circle = 10 ** 2 + 10 ** 2
         sqrt = round(math.sqrt(circle))
@@ -58,3 +71,22 @@ class Games:
             if x <= sqrt and y <= sqrt:
                 counter += 1
         return counter
+
+
+class Games:
+    def first_game():
+        return FirstGame.first_game()
+
+
+    def second_game():
+        current, counter = SecondGame.second_game()
+        current = f"{current}, Мне потребовалось {counter} попыток/ка/ки"
+        return current
+
+
+    def third_game():
+       return ThirdGame.third_game()
+
+
+    def fourth_game():
+        return FourthGame.fourth_game()
