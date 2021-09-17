@@ -14,7 +14,7 @@ def guess_game():
             elif guess_gametype == 3:
                 print(Games.third_game())
             elif guess_gametype == 4:
-                print(Games.fourth_game(), " Попадания в яблочко")
+                print(Games.fourth_game())
     except ValueError:
         leave = input("Хотите выйти? Y/N\n").lower()
         if leave == "y":

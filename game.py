@@ -68,9 +68,10 @@ class FourthGame:
         counter = 0
         for i in range(10):
             x, y = random.randint(0, sqrt * 2), random.randint(0, sqrt * 2)
+            score = (x + y) * 2
             if x <= sqrt and y <= sqrt:
                 counter += 1
-        return counter
+        return counter, score
 
 
 class Games:
@@ -80,8 +81,7 @@ class Games:
 
     def second_game():
         current, counter = SecondGame.second_game()
-        current = f"{current}, Мне потребовалось {counter} попыток/ка/ки"
-        return current
+        return f"{current}, Мне потребовалось {counter} попыток/ка/ки"
 
 
     def third_game():
@@ -89,4 +89,5 @@ class Games:
 
 
     def fourth_game():
-        return FourthGame.fourth_game()
+        counter, score = FourthGame.fourth_game()
+        return f"{counter} Попадания в яблочко, Ваш счет {score}"
