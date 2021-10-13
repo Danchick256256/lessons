@@ -3,4 +3,4 @@ class Handlers:
         self.function = function
 
     def __call__(self, *args, **kwargs):
-        return self.function(self, *args, **kwargs, value=input("Введите значение: "))
+        return self.function(*args, **kwargs, value=input("Введите значение: "))
